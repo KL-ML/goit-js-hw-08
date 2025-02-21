@@ -37,7 +37,7 @@ a {
 }
 .gallery-image {
   object-fit: cover;
-  transition: scale 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: scale 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .gallery-image:hover {
   cursor: pointer;
