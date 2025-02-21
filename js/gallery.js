@@ -88,16 +88,14 @@ gallery.addEventListener('click', onGalleryImgClick);
 
 function onGalleryImgClick(event) {
   event.preventDefault();
-  if (!event.target.classList.contains('gallery-image')) {
+  const { classList, dataset } = event.target;
+  if (!classList.contains('gallery-image')) {
     return;
   }
-
-  const linkOnOrigImage = event.target.dataset.source;
+  const linkOnOrigImage = dataset.source;
 
   const instance = basicLightbox.create(
-    `
-    <img src="${linkOnOrigImage}" width="800" height="600">
-    `,
+    `<img src="${linkOnOrigImage}" width="800" height="600">`,
     {
       onShow: instance => {
         window.addEventListener('keydown', onEscKeyPress);
@@ -109,7 +107,7 @@ function onGalleryImgClick(event) {
   );
 
   instance.show();
-  
+
   function onEscKeyPress(evt) {
     const ESC_KEY_CODE = 'Escape';
     if (evt.code === ESC_KEY_CODE) {
